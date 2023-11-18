@@ -81,12 +81,7 @@
                                         @click="handelDelete(item.id)"
                                         class="Cart_itemBtn"
                                     >
-                                        <a
-                                            href="/"
-                                            style="text-decoration: none"
-                                        >
-                                            -
-                                        </a>
+                                        -
                                     </div>
                                     <div
                                         v-else
