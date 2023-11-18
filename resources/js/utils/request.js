@@ -1,8 +1,8 @@
 import axios from "axios";
 
 const service = axios.create({
-    baseURL: "http://thuyvi-intern.loc/api",
-    // baseURL: 'https://dogom.click/api',
+    // baseURL: "http://thuyvi-intern.loc/api",
+    baseURL: 'https://dogom.click/api',
     timeout: 60000,
 });
 

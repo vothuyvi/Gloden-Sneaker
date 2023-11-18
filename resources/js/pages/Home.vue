@@ -81,7 +81,12 @@
                                         @click="handelDelete(item.id)"
                                         class="Cart_itemBtn"
                                     >
-                                        -
+                                        <a
+                                            href="/"
+                                            style="text-decoration: none"
+                                        >
+                                            -
+                                        </a>
                                     </div>
                                     <div
                                         v-else
@@ -134,6 +139,7 @@ const authStore = useAuthStore();
 watch(
     () => authStore.refetchOrder,
     async () => {
+        console.log("run get Order");
         await getOrder();
     }
 );
@@ -176,13 +182,12 @@ const getOrder = async () => {
             });
             state.localOrders = localOrders;
             authStore.listID = listID;
-            console.log("localOrders:", localOrders);
-            console.log("list ID: ", listID);
+            // console.log("localOrders:", localOrders);
+            // console.log("list ID: ", listID);
             const form = {
                 listID: listID,
             };
             const { data: res } = await getShoesCart(form);
-            console.log("data", res.data);
             if (res.data) {
                 state.orders = res.data;
                 state.orders.forEach((item) => {
@@ -200,6 +205,7 @@ const getOrder = async () => {
         } else {
             state.orders = [];
             state.totalPrice = 0;
+            authStore.listID = [];
         }
     } else {
         state.orders = [];
@@ -221,7 +227,7 @@ const handelQuantity = (item, type) => {
             }
         }
     }
-    
+
     localStorage.setItem("orders", JSON.stringify(orders));
     authStore.onRefetchOrder();
 };

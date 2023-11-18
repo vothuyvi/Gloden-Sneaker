@@ -1,6 +1,5 @@
 import Layout from "@/layouts/index.vue";
 import Home from "@/pages/Home.vue";
-import Cart from "@/pages/Cart.vue";
 
 const path = [
     {
@@ -11,11 +10,6 @@ const path = [
                 path: "",
                 name: "HomeView",
                 component: Home,
-            },
-            {
-                path: "/cart",
-                name: "CartView",
-                component: Cart,
             },
             { path: "/:pathMatch(.*)*", redirect: "/404", hidden: true },
         ],
